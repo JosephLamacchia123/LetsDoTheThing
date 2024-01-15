@@ -1,20 +1,37 @@
 package com.project.letsdothething.pojos;
 
-public class Event {
-    private String eventName;
+import jakarta.persistence.*;
 
-    public Event(String eventName) {
-        this.eventName = eventName;
+@Entity
+public class Event {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Event(String name) {
+        this.name = name;
     }
 
     public Event() {
     }
 
-    public String getEventName() {
-        return eventName;
+    public String getName() {
+        return name;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
+    public void setEventName(String name) {
+        this.name = name;
     }
 }
